@@ -1,0 +1,222 @@
+:root {
+    --bg-color: #050505;
+    --text-primary: #e0e0e0;
+    --accent-color: #00f3ff;
+    /* Cyan Neon */
+    --accent-secondary: #ff0055;
+    /* Red Neon for elapsed/warning if needed, primarily using Cyan */
+    --glass-panel: rgba(255, 255, 255, 0.03);
+    --font-display: 'Share Tech Mono', monospace;
+    --font-ui: 'Jura', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Effects */
+.background-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, #000000 120%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Container & Layout */
+.container {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1000px;
+}
+
+header {
+    margin-bottom: 4rem;
+}
+
+.target-date {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.status-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #666;
+}
+
+/* Timer Grid */
+.timer-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.value-container {
+    position: relative;
+    background: var(--glass-panel);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    min-width: 120px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.value {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 1;
+    color: #fff;
+    display: block;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.separator {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: #333;
+    padding-top: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+.label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
+    color: #888;
+}
+
+/* Decor Elements */
+.scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 243, 255, 0.3);
+    animation: scan 3s linear infinite;
+}
+
+.system-status {
+    font-size: 0.7rem;
+    color: #444;
+    letter-spacing: 0.1rem;
+    border-top: 1px solid #222;
+    padding-top: 1rem;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.blink {
+    animation: blink 1s step-end infinite;
+}
+
+/* Animations */
+@keyframes scan {
+    0% {
+        top: -10%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .timer-grid {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .value {
+        font-size: 2.5rem;
+    }
+
+    .value-container {
+        min-width: 80px;
+        padding: 0.5rem 1rem;
+    }
+
+    .target-date {
+        font-size: 1.2rem;
+    }
+}

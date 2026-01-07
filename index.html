@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-05-12 Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-grain"></div>
+    <div class="overlay"></div>
+
+    <main class="container">
+        <header>
+            <h1 class="target-date">2026.05.12</h1>
+            <div id="status-label" class="status-label">目标锁定中</div>
+        </header>
+
+        <div class="timer-grid">
+            <div class="time-unit">
+                <div class="value-container">
+                    <span id="days" class="value">000</span>
+                    <div class="scanline"></div>
+                </div>
+                <span class="label">天</span>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-unit">
+                <div class="value-container">
+                    <span id="hours" class="value">00</span>
+                    <div class="scanline"></div>
+                </div>
+                <span class="label">时</span>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-unit">
+                <div class="value-container">
+                    <span id="minutes" class="value">00</span>
+                    <div class="scanline"></div>
+                </div>
+                <span class="label">分</span>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-unit">
+                <div class="value-container">
+                    <span id="seconds" class="value">00</span>
+                    <div class="scanline"></div>
+                </div>
+                <span class="label">秒</span>
+            </div>
+        </div>
+
+        <footer class="system-status">
+            <span class="blink">系统：在线</span>
+            <span class="location">坐标：地球</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
