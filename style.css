@@ -80,7 +80,7 @@ header {
     font-size: 0.8rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
-    color: #666;
+    color: #aaa;
 }
 
 /* Timer Grid */
@@ -129,7 +129,7 @@ header {
 .label {
     font-size: 0.7rem;
     letter-spacing: 0.2rem;
-    color: #888;
+    color: #bbb;
 }
 
 /* Decor Elements */
@@ -145,9 +145,9 @@ header {
 
 .system-status {
     font-size: 0.7rem;
-    color: #444;
+    color: #888;
     letter-spacing: 0.1rem;
-    border-top: 1px solid #222;
+    border-top: 1px solid #333;
     padding-top: 1rem;
     display: inline-block;
     width: 100%;
